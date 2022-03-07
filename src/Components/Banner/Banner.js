@@ -1,57 +1,63 @@
-import React from 'react'
-import { makeStyles, Container, Typography } from "@material-ui/core";
+import { Container, makeStyles, Typography } from "@material-ui/core";
+import Carousel from "./Carousel";
 
-const useStyles=makeStyles(() => ({  
-    banner: {
-        backgroundImage: "url(./banner2.jpg)",
-    },
-    bannerContent: {
-        height: 400,
-        display: "flex",
-        flexDirection: "colum",
-        padingTop: 25,
-        justifyContent: "space-around",
-    },
-    tagline: {
-        display: "flex",
-        height: "40%",
-        flexDirection: "column",
-        justifyDirection: "center",
-        textAlign: "center",
-    },
-    
+const useStyles = makeStyles((theme) => ({
+  banner: {
+    backgroundImage: "url(./banner2.jpg)",
+  },
+  bannerContent: {
+    height: 400,
+    display: "flex",
+    flexDirection: "column",
+    paddingTop: 25,
+    justifyContent: "space-around",
+  },
+  tagline: {
+    display: "flex",
+    height: "40%",
+    flexDirection: "column",
+    justifyContent: "center",
+    textAlign: "center",
+  },
+  carousel: {
+    height: "50%",
+    display: "flex",
+    alignItems: "center",
+  },
 }));
- 
-const Banner = () => {
+
+function Banner() {
   const classes = useStyles();
-    return <div className = {classes.banner}>
-        <Container className={classes.bannerContent}>
-            <div className={classes.tagline}>
-            <Typography 
+
+  return (
+    <div className={classes.banner}>
+      <Container className={classes.bannerContent}>
+        <div className={classes.tagline}>
+          <Typography
             variant="h2"
             style={{
-                fontWeight: "bold",
-                marginBottom: 15,
-                fontFamily: "Montserrat",
+              fontWeight: "bold",
+              marginBottom: 15,
+              fontFamily: "Montserrat",
             }}
-            >
-                Crypto Hunter
-            </Typography>
-            <Typography 
+          >
+            One Stop Digital Asset Trading
+          </Typography>
+          <Typography
             variant="subtitle2"
             style={{
-                fontWeight: "darkgrey",
-                marginBottom: "capitalize",
-                fontFamily: "Montserrat",
+              color: "darkgrey",
+              textTransform: "capitalize",
+              fontFamily: "Montserrat",
             }}
-            >
-                Get All Info Regarding Your Favourite Crypto Currency
-            </Typography>
-            </div>
-        </Container>
-
-
+          >
+            Get all the Info regarding your favorite Crypto Currency
+          </Typography>
+        </div>
+        <Carousel />
+      </Container>
     </div>
-};
+  );
+}
 
-export default Banner;
+export default Banner
